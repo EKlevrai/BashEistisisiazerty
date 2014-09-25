@@ -1,0 +1,4 @@
+*.log
+*.yml
+*.types
+node_modules/*

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Violence et petits chats</title>
+    </head>
+
+    <body>
+
+        <% if (typeof toSay != 'undefined' 
+		&& toSay.hasOwnProperty("name") 
+		&& toSay.hasOwnProperty("insulte") 
+		&& toSay.hasOwnProperty("recommended_action") 
+		&& toSay.hasOwnProperty("proportion")
+		&& toSay.hasOwnProperty("capacity")
+		&& toSay.hasOwnProperty("context")
+		&& toSay.hasOwnProperty("reproche")
+		&& toSay.hasOwnProperty("cause")
+		){ %>
+        <%=toSay.name%> t'es vraiment 
+		<%=toSay.insulte%> tu ferais mieux de 
+		<%=toSay.recommended_action%> et je suis d'accord avec 
+		<%=toSay.mec_d_accord%> 
+		<%=toSay.proportion%> de l'eisti ne t'aimes pas tu fais trop ton malin... A part 
+		<%=toSay.capacity%> tu sais rien faire d'autre #
+		<%=toSay.context%> car excuse moi de 
+		<%=toSay.reproche%> quand 
+		<%=toSay.cause%>.</body>
+        <% } %>
+        <form action="/bashing" method="get">
+            <p>
+                <input type="submit" />
+            </p>
+        </form>
+    </body>
+</html>

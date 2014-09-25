@@ -1,0 +1,35 @@
+body {
+background : url(chaton.jpg);
+padding : 20px 0;
+font-weight : 800;
+font-style : razer regular;
+}
+div.TheContainerOfDoomedKitten{
+margin : 10px 0;
+background-color : rgba(200,200,200,0.9);
+padding : 30px;
+height : 600px
+}
+div.Header{
+margin : 10px 0;
+background-color : rgba(200,200,200,0.9);
+background-image : url(Header.png);
+background-repeat : no-repeat;
+height : 120px;
+}
+.TheContainerOfDoomedKitten div{
+margin : 10px 0px;
+}
+input{
+width : 75%;
+min-width : 200px;
+background-color : #CCCCCC;
+ }
+.unleash-the-bash{
+width:100%;
+background-color : #E8CCCC;
+}
+#the-story{
+text-align : center;
+font-size : 20 px;
+}
