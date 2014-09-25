@@ -8,7 +8,6 @@ div.TheContainerOfDoomedKitten{
 margin : 10px 0;
 background-color : rgba(200,200,200,0.9);
 padding : 30px;
-height : 600px
 }
 div.Header{
 margin : 10px 0;
@@ -21,7 +20,7 @@ height : 120px;
 margin : 10px 0px;
 }
 input{
-width : 75%;
+width : 100%;
 min-width : 200px;
 background-color : #CCCCCC;
  }

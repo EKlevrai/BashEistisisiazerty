@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Violence et petits chats</title>
+        <title>Violence et petits chats</title><link href="/style/swag.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+
+
     </head>
 
-    <body>
-
+    <body class="container-fluid">
+		<div class="Header col-md-12 container-fluid"></div>
+		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
         <% if (typeof toSay != 'undefined' 
 		&& toSay.hasOwnProperty("name") 
 		&& toSay.hasOwnProperty("insulte") 
@@ -21,15 +25,16 @@
 		<%=toSay.recommended_action%> et je suis d'accord avec 
 		<%=toSay.mec_d_accord%> 
 		<%=toSay.proportion%> de l'eisti ne t'aimes pas tu fais trop ton malin... A part 
-		<%=toSay.capacity%> tu sais rien faire d'autre #
-		<%=toSay.context%> car excuse moi de 
+		<%=toSay.capacity%> tu sais rien faire d'autre #<%=toSay.context%> car excuse moi de 
 		<%=toSay.reproche%> quand 
-		<%=toSay.cause%>.</body>
+		<%=toSay.cause%>.
         <% } %>
         <form action="/bashing" method="get">
             <p>
-                <input type="submit" />
+                <input class="unleash-the-bash" type="submit" value="More hate and cutes cats" />
             </p>
         </form>
+		</div>
+		</div>
     </body>
 </html>
