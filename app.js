@@ -39,31 +39,47 @@ Some ascii for the fun
 */
 
 .get('/bash', function(req, res){
-		var connection = mysql.createConnection({
-			host     : mysql_host,
-			user     : mysql_user,
-			password : mysql_password,
-			database : mysql_database
-		});
+	var connection = mysql.createConnection({
+		host     : mysql_host,
+		user     : mysql_user,
+		password : mysql_password,
+		database : mysql_database
+	});
+	if(!isNaN(parseInt(req.query.id,10))){
 		connection.connect();
 		connection.query("SELECT * FROM Bash Where id="+req.query.id+";",function(err, rows, fields) {
-		if (err) throw err;
-		//console.log(rows);
-		res.render('bash.ejs', 
-			{toSay: {
-				name : rows[0].name,
-				insulte : rows[0].insulte,
-				recommended_action : rows[0].recommended_action,
-				mec_d_accord : rows[0].mec_d_accord,
-				proportion : rows[0].proportion,
-				capacity : rows[0].capacity,
-				context : rows[0].context,
-				reproche : rows[0].reproche,
-				cause : rows[0].cause
+			if (err){ throw err;
+				res.redirect('/bashing');}
+			if (typeof rows!= 'undefined' 
+			&& typeof rows[0]!= 'undefined'
+			&& rows[0].hasOwnProperty("name") 
+			&& rows[0].hasOwnProperty("insulte") 
+			&& rows[0].hasOwnProperty("recommended_action") 
+			&& rows[0].hasOwnProperty("proportion")
+			&& rows[0].hasOwnProperty("capacity")
+			&& rows[0].hasOwnProperty("context")
+			&& rows[0].hasOwnProperty("reproche")
+			&& rows[0].hasOwnProperty("cause")
+			){ 
+				res.render('bash.ejs', 
+					{toSay: {
+						name : rows[0].name,
+						insulte : rows[0].insulte,
+						recommended_action : rows[0].recommended_action,
+						mec_d_accord : rows[0].mec_d_accord,
+						proportion : rows[0].proportion,
+						capacity : rows[0].capacity,
+						context : rows[0].context,
+						reproche : rows[0].reproche,
+						cause : rows[0].cause
+						}
+					});
 			}
-		});
+		else res.redirect('/bashing');
 		});
 		connection.end();
+	}
+	else res.redirect('/bashing');
 })
 .get('/bashing', function(req, res) {
     res.render('bashForm.ejs');
