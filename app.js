@@ -16,6 +16,7 @@ var mysql_password='bash';
 var mysql_database='faucheisti_prod_basheisti';
 
 
+
 /* On utilise les cookies, les sessions et les formulaires */
  app.use(express.static(__dirname + '/public'));
  app.use(cookieParser())
