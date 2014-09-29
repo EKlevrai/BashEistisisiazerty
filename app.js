@@ -14,31 +14,10 @@ var mysql_user='basheisti';
 var mysql_password='bash';
 /**the DB*/
 var mysql_database='faucheisti_prod_basheisti';
-
-
-
 /* On utilise les cookies, les sessions et les formulaires */
  app.use(express.static(__dirname + '/public'));
  app.use(cookieParser())
- .use(bodyParser())
- 
-
-
-/*
-Some ascii for the fun
-           _ 
-          /\) _   
-     _   / / (/\  
-    /\) ( Y)  \ \ 
-   / /   ""   (Y )
-  ( Y)  _      "" 
-   ""  (/\       _  
-        \ \     /\)
-        (Y )   / / 
-         ""   ( Y)
-
-*/
-
+.use(bodyParser())
 .get('/bash', function(req, res){
 	var connection = mysql.createConnection({
 		host     : mysql_host,
