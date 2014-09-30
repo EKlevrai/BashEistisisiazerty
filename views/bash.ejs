@@ -20,7 +20,7 @@
 		&& toSay.hasOwnProperty("context")
 		&& toSay.hasOwnProperty("reproche")
 		&& toSay.hasOwnProperty("cause")
-		){ %>
+		){ %><p class="bash_in_history">
         <%=toSay.name%> t'es vraiment 
 		<%=toSay.insulte%> tu ferais mieux de 
 		<%=toSay.recommended_action%> et je suis d'accord avec 
@@ -28,7 +28,7 @@
 		<%=toSay.proportion%> de l'eisti ne t'aimes pas tu fais trop ton malin... A part 
 		<%=toSay.capacity%> tu sais rien faire d'autre #<%=toSay.context%> car excuse moi de 
 		<%=toSay.reproche%> quand 
-		<%=toSay.cause%>.
+		<%=toSay.cause%>.</p>
         <% } %>
         <form action="/bashing" method="get">
             <p>

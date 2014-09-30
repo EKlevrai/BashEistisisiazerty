@@ -9,6 +9,5 @@ npm install express
 npm install ejs  
 npm install mysql  
 npm install mime  
-npm install cookie-parser  
 npm install body-parser  
 npm install express-session  

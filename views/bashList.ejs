@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Violence et petits chats</title><link href="/style/swag.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<link rel="shortcut icon" href="/style/icon.ico" >
+    </head>
+    <body class="container-fluid">
+		<div class="Header col-md-12 container-fluid"></div>
+		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
+        <% if (typeof bashes != 'undefined'){
+			bashes.forEach(function(entry){
+			if( entry.hasOwnProperty("name") 
+				&& entry.hasOwnProperty("insulte") 
+				&& entry.hasOwnProperty("recommended_action") 
+				&& entry.hasOwnProperty("proportion")
+				&& entry.hasOwnProperty("capacity")
+				&& entry.hasOwnProperty("context")
+				&& entry.hasOwnProperty("reproche")
+				&& entry.hasOwnProperty("cause")
+		){ %><p class="bash_in_history">
+        <%=entry.name%> t'es vraiment 
+		<%=entry.insulte%> tu ferais mieux de 
+		<%=entry.recommended_action%> et je suis d'accord avec 
+		<%=entry.mec_d_accord%> 
+		<%=entry.proportion%> de l'eisti ne t'aimes pas tu fais trop ton malin... A part 
+		<%=entry.capacity%> tu sais rien faire d'autre #<%=entry.context%> car excuse moi de 
+		<%=entry.reproche%> quand 
+		<%=entry.cause%>.
+		<a href="./bash?id=<%=entry.id%>">view bash</a>
+		</p> 			
+			<%}
+		});}%>
+        <form action="/bashing" method="get">
+            <p>
+                <input class="unleash-the-bash" type="submit" value="More hate and cutes cats" />
+            </p>
+        </form>
+		</div>
+		</div>
+    </body>
+</html>
