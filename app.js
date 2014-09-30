@@ -11,7 +11,7 @@ var mysql_host='localhost';
 /**the user */
 var mysql_user='basheisti';
 /**put the password */
-var mysql_password='bash';
+var mysql_password='B4sheisti';
 /**the DB*/
 var mysql_database='faucheisti_prod_basheisti';
 /* On utilise les cookies, les sessions et les formulaires */
@@ -19,16 +19,17 @@ var mysql_database='faucheisti_prod_basheisti';
  app.use(cookieParser())
 .use(bodyParser())
 .get('/bash', function(req, res){
+	console.log("GET  /bash?id="+req.query.id+", IP is : "+req.connection.remoteAddress+" ["+new Date().toUTCString() +"]");
 	var connection = mysql.createConnection({
 		host     : mysql_host,
 		user     : mysql_user,
 		password : mysql_password,
 		database : mysql_database
 	});
-	if(!isNaN(parseInt(req.query.id,10))){
+	if(!isNaN(Number(req.query.id,10))){
 		connection.connect();
 		connection.query("SELECT * FROM Bash Where id="+req.query.id+";",function(err, rows, fields) {
-			if (err){ throw err;
+			if (err){ //throw err;
 				res.redirect('/bashing');}
 			if (typeof rows!= 'undefined' 
 			&& typeof rows[0]!= 'undefined'
@@ -62,10 +63,15 @@ var mysql_database='faucheisti_prod_basheisti';
 	else res.redirect('/bashing');
 })
 .get('/bashing', function(req, res) {
+	console.log("GET  /bashing, IP is : "+req.connection.remoteAddress+" ["+new Date().toUTCString() +"]");
+
     res.render('bashForm.ejs');
 })
 /* send de bash */ 
-.post('/bashing', function(req, res) { if(req.body.form_name!='' &&
+.post('/bashing', function(req, res) {
+	console.log("POST /bashing, IP is : "+req.connection.remoteAddress+" ["+new Date().toUTCString() +"]");
+
+ if(req.body.form_name!='' &&
 	req.body.form_insulte!='' &&
 	req.body.form_recommended_action!='' &&
 	req.body.form_mec_d_accord!='' &&
@@ -88,7 +94,6 @@ var mysql_database='faucheisti_prod_basheisti';
 		});
 		connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
 		if (err) throw err;
-		console.log(rows[0].bash_generes);
 		res.redirect('/bash?id='+rows[0].bash_generes);
 		});
 		connection.end();
