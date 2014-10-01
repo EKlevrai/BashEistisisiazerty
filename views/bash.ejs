@@ -5,10 +5,8 @@
 		<link href="/style/swag.css" type="text/css" rel="stylesheet" />
 		<link href="/style/swag_form.css" type="text/css" rel="stylesheet" />
 		<link href="/style/swag_button.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-<link rel="shortcut icon" href="/style/icon.ico" >
-
-
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<link rel="shortcut icon" href="/icons/mainpage.ico" >
     </head>
 
     <body class="container-fluid">
@@ -35,9 +33,7 @@
 		<%=toSay.cause%>.</p>
         <% } %>
         <form action="/bashing" method="get">
-            <p>
                 <input class="unleash-the-bash" type="submit" value="More hate and cutes cats" />
-            </p>
 		        <% if (typeof toSay != 'undefined' 
 		&& toSay.hasOwnProperty("id") 
 		&& toSay.hasOwnProperty("name") 
@@ -49,11 +45,13 @@
 		&& toSay.hasOwnProperty("reproche")
 		&& toSay.hasOwnProperty("cause")
 		){ %>
-		<a href="https://twitter.com/share" data-count="none" class="twitter-share-button" data-url="http://bash.faucheisti.eu/bash?id=<%=toSay.id%>" data-text="<%=toSay.name%> t'es vraiment <%=toSay.insulte%> tu ferai mieux de <%=toSay.recommended_action%>...">Tweet</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<a class="button_twitter popup" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&text=<%=toSay.name.replace(" ","%20")%>%20t%27es%20vraiment%20<%=toSay.insulte.replace(" ","%20")%>%20tu%20ferai%20mieux%20de%20<%=toSay.recommended_action.replace(" ","%20")%>...&tw_p=tweetbutton&url=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>">
+		<span class="tweet_ico">Tweet</span>
+		</a>
 		<% } %>
         </form>
 		</div>
 		</div>
     </body>
+		<script src="/front/popup.js"></script>
 </html>
