@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Violence et petits chats</title><link href="/style/swag.css" type="text/css" rel="stylesheet" />
+        <title>Violence et petits chats</title>
+		<link href="/style/swag.css" type="text/css" rel="stylesheet" />
+		<link href="/style/swag_form.css" type="text/css" rel="stylesheet" />
+		<link href="/style/swag_button.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
 <link rel="shortcut icon" href="/style/icon.ico" >
 
@@ -11,7 +14,8 @@
     <body class="container-fluid">
 		<div class="Header col-md-12 container-fluid"></div>
 		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
-        <% if (typeof toSay != 'undefined' 
+        <% if (typeof toSay != 'undefined'
+		&& toSay.hasOwnProperty("id") 		
 		&& toSay.hasOwnProperty("name") 
 		&& toSay.hasOwnProperty("insulte") 
 		&& toSay.hasOwnProperty("recommended_action") 
@@ -34,6 +38,20 @@
             <p>
                 <input class="unleash-the-bash" type="submit" value="More hate and cutes cats" />
             </p>
+		        <% if (typeof toSay != 'undefined' 
+		&& toSay.hasOwnProperty("id") 
+		&& toSay.hasOwnProperty("name") 
+		&& toSay.hasOwnProperty("insulte") 
+		&& toSay.hasOwnProperty("recommended_action") 
+		&& toSay.hasOwnProperty("proportion")
+		&& toSay.hasOwnProperty("capacity")
+		&& toSay.hasOwnProperty("context")
+		&& toSay.hasOwnProperty("reproche")
+		&& toSay.hasOwnProperty("cause")
+		){ %>
+		<a href="https://twitter.com/share" data-count="none" class="twitter-share-button" data-url="http://bash.faucheisti.eu/bash?id=<%=toSay.id%>" data-text="<%=toSay.name%> t'es vraiment <%=toSay.insulte%> tu ferai mieux de <%=toSay.recommended_action%>...">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<% } %>
         </form>
 		</div>
 		</div>

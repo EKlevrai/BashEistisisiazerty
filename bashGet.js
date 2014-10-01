@@ -24,21 +24,7 @@ var  getBashById = function(req, res){
 			&& rows[0].hasOwnProperty("context")
 			&& rows[0].hasOwnProperty("reproche")
 			&& rows[0].hasOwnProperty("cause")
-			){ 
-				res.render('bash.ejs', 
-					{toSay: {
-						name : rows[0].name,
-						insulte : rows[0].insulte,
-						recommended_action : rows[0].recommended_action,
-						mec_d_accord : rows[0].mec_d_accord,
-						proportion : rows[0].proportion,
-						capacity : rows[0].capacity,
-						context : rows[0].context,
-						reproche : rows[0].reproche,
-						cause : rows[0].cause
-						}
-					});
-			}
+			){res.render('bash.ejs',{toSay: rows[0]});}
 		else res.redirect('/bashing');
 		});
 		connection.end();
