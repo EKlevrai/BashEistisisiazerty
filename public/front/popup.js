@@ -11,9 +11,9 @@
                  ',height=' + height +
                  ',top='    + top    +
                  ',left='   + left;
-			window.open(url, '', opts);
+			if (this.dataset.newwindow=="false")window.open(url,'_blank');
+			else window.open(url, '', opts);
 			return false;
 		};
 	}
 }
-	

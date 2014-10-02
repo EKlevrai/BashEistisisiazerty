@@ -33,7 +33,7 @@
 		<%=toSay.cause%>.</p>
         <% } %>
         <form action="/bashing" class="container-fluid" method="get">
-                <button class="unleash-the-bash col-md-6" type="submit">More hate and cutes cats</button>
+                <button class="unleash-the-bash col-md-4" type="submit">More hate and cutes cats</button>
 		        <% if (typeof toSay != 'undefined' 
 		&& toSay.hasOwnProperty("id") 
 		&& toSay.hasOwnProperty("name") 
@@ -45,8 +45,11 @@
 		&& toSay.hasOwnProperty("reproche")
 		&& toSay.hasOwnProperty("cause")
 		){ %>
-		<button class="col-md-6 button_twitter popup" data-url="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&text=<%=toSay.name.replace(" ","%20")%>%20t%27es%20vraiment%20<%=toSay.insulte.replace(" ","%20")%>%20tu%20ferai%20mieux%20de%20<%=toSay.recommended_action.replace(" ","%20")%>...&tw_p=tweetbutton&url=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>">
+		<button class="col-md-4 button_twitter popup" data-url="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&text=<%=toSay.name.replace(" ","%20")%>%20t%27es%20vraiment%20<%=toSay.insulte.replace(" ","%20")%>%20tu%20ferai%20mieux%20de%20<%=toSay.recommended_action.replace(" ","%20")%>...&tw_p=tweetbutton&url=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>">
 		<span class="tweet_ico">Tweet</span>
+		</button>
+		<button class="col-md-4 button_facebook popup" data-url="https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&sdk=joey&u=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&display=popup&ref=plugin">
+		<span class="fb_ico">share</span>
 		</button>
 		<% } %>
         </form>
