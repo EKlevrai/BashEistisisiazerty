@@ -5,7 +5,7 @@
 				height = 400,
 				left   = 400,
 				top    = 575,
-				url    = this.href,
+				url    = this.dataset.url,
 				opts   = 'status=1' +
                  ',width='  + width  +
                  ',height=' + height +

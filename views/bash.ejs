@@ -32,8 +32,8 @@
 		<%=toSay.reproche%> quand 
 		<%=toSay.cause%>.</p>
         <% } %>
-        <form action="/bashing" method="get">
-                <input class="unleash-the-bash" type="submit" value="More hate and cutes cats" />
+        <form action="/bashing" class="container-fluid" method="get">
+                <button class="unleash-the-bash col-md-6" type="submit">More hate and cutes cats</button>
 		        <% if (typeof toSay != 'undefined' 
 		&& toSay.hasOwnProperty("id") 
 		&& toSay.hasOwnProperty("name") 
@@ -45,9 +45,9 @@
 		&& toSay.hasOwnProperty("reproche")
 		&& toSay.hasOwnProperty("cause")
 		){ %>
-		<a class="button_twitter popup" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&text=<%=toSay.name.replace(" ","%20")%>%20t%27es%20vraiment%20<%=toSay.insulte.replace(" ","%20")%>%20tu%20ferai%20mieux%20de%20<%=toSay.recommended_action.replace(" ","%20")%>...&tw_p=tweetbutton&url=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>">
+		<button class="col-md-6 button_twitter popup" data-url="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&text=<%=toSay.name.replace(" ","%20")%>%20t%27es%20vraiment%20<%=toSay.insulte.replace(" ","%20")%>%20tu%20ferai%20mieux%20de%20<%=toSay.recommended_action.replace(" ","%20")%>...&tw_p=tweetbutton&url=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>">
 		<span class="tweet_ico">Tweet</span>
-		</a>
+		</button>
 		<% } %>
         </form>
 		</div>
