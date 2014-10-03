@@ -37,5 +37,22 @@ var  printHistory =  function(req, res) {
 	});	
 	});
 };
+var  printRandom =  function(req, res) {
+	console.log("GET  /random, IP is : "+req.connection.remoteAddress+" ["+new Date().toUTCString() +"]");
+	var Attrs={ bashes: [] };
+	var connection = mysql.createConnection({
+		host     : global.mysql_host,
+		user     : global.mysql_user,
+		password : global.mysql_password,
+		database : global.mysql_database
+	});
+	/*On genere la query à partir du nombre de lignes de data (5 ou moins) */
+	connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
+	if (err) throw err;
+	var n=Math.floor(Math.random() * rows[0].bash_generes) + 1
+	res.redirect('/bash?id='+n);
+	});
+};
 module.exports.getHistory = function(req, res) {return printHistory(req, res); }
+module.exports.getRandom = function(req, res) {return printRandom(req, res); }
 }());

@@ -27,6 +27,8 @@ global.mysql_database='faucheisti_prod_basheisti';
     res.render('bashForm.ejs');
 })
 .get('/bashistory',history.getHistory)
+/* Bash au random */
+.get('/random',history.getRandom)
 /* send de bash */ 
 .post('/bashing',post_bash.managePost)
 /* On redirige vers le formulaire si la page demandée n'est pas trouvée */ 
