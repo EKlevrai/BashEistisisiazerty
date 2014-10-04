@@ -6,13 +6,34 @@
 <link href="/style/swag.css" type="text/css" rel="stylesheet" />
 <link href="/style/swag_form.css" type="text/css" rel="stylesheet" />
 <link href="/style/swag_button.css" type="text/css" rel="stylesheet" />
+		<link href="/BasheistIcons/style.css" type="text/css" rel="stylesheet" />		
 <link rel="shortcut icon" href="/icons/mainpage.ico" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
         <title>Violence et petits chats</title>
     </head>
 
     <body class="container-fluid">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/bashing"><i class="icon-basheisti">  </i></a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/bashistory">Derniers bash</a></li>
+        <li><a href="/random">Un bash au hasard</a></li>
+        
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 		<div class="Header col-md-12 container-fluid"></div>
 		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
 			<form action="/bashing" method="post">
@@ -35,10 +56,10 @@
 				<div class="col-md-6"><input type="text" name="form_reproche" id="form_reproche" value="ne pas vouloir te donner la moyenne" /></div>
 				<div class="col-md-6">pourquoi l'avez-vous fait?</div>
 				<div class="col-md-6"><input type="text" name="form_cause" id="form_cause" value="tu n'as rien branl&eacute; et que je me tape tout derri&egrave;re" /></div>
-                <input class="unleash-the-bash col-md-4" type="submit" value="Generate hate" />
+                <input class="button_basheisti col-md-4" type="submit" value="Generate hate" />
 			</form>
-			<button class="popup button_twitter col-md-4" title="Follow @Basheisti on Twitter" data-url="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbashing&region=follow_link&screen_name=Basheisti&tw_p=followbutton&variant=2.0" data-newwindow="true">Follow<b>@Basheisti</b></button>
-			<button class="col-md-4 popup button_facebook"  title="Like Basheisti on Facebook" data-url="https://www.facebook.com/BashEisti" data-newwindow="false">Like BashEisti</button>
+			<button class="popup button_twitter col-md-4" title="Follow @Basheisti on Twitter" data-url="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbashing&region=follow_link&screen_name=Basheisti&tw_p=followbutton&variant=2.0" data-newwindow="true"><span class="icon-twitter"><span>Follow<b>@Basheisti</b></span></span></button>
+			<button class="col-md-4 popup button_facebook"  title="Like Basheisti on Facebook" data-url="https://www.facebook.com/BashEisti" data-newwindow="false"><span class="icon-facebook"><span>Like BashEisti</span></span></button>
 		
 		</div>
 	</body><script src="/front/popup.js"></script>

@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-m9gzue');
+	src:url('fonts/icomoon.eot?#iefix-m9gzue') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-m9gzue') format('woff'),
+		url('fonts/icomoon.ttf?-m9gzue') format('truetype'),
+		url('fonts/icomoon.svg?-m9gzue#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+/* Nouvelles règles pour le viewport */
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px)
+{}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px)
+and (max-width : 767px)
+{}
+ 
+ 
+ /* iPads (landscape) and desktop ---------- */
+@media only screen
+and (min-width : 767px)
+{
+.icon-facebook:before {
+	content: "\e601";
+}
+.icon-googleplus:before {
+	content: "\e602";
+}
+.icon-twitter:before {
+	content: "\e603";
+}
+.icon-github:before {
+	content: "\e604";
+}
+.icon-clock:before {
+	content: "\e605";
+}
+.icon-search:before {
+	content: "\e600";
+}
+}
