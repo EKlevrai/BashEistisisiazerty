@@ -22,6 +22,15 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.icon-clock:before {
+	content: "\e605";
+}
+.icon-search:before {
+	content: "\e600";
+}
+
+
 /* Nouvelles règles pour le viewport */
 /* Smartphones (portrait) ----------- */
 @media only screen
@@ -50,11 +59,5 @@ and (min-width : 767px)
 }
 .icon-github:before {
 	content: "\e604";
-}
-.icon-clock:before {
-	content: "\e605";
-}
-.icon-search:before {
-	content: "\e600";
 }
 }
