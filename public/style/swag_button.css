@@ -40,3 +40,28 @@
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
 }
+ /* iPads (landscape) and desktop ---------- */
+@media only screen
+and (min-width : 990px)
+{
+.button_facebook, .button_twitter, .button_basheisti{
+line-height : 52px;
+max-height : 50px;
+font-size : 50px;
+overflow : auto;
+padding : 1px;
+}
+.button-basheisti:before {
+	content: "\e606";
+}
+.button-facebook:before {
+	content: "\e601";
+}
+.button-googleplus:before {
+	content: "\e602";
+}
+.button-twitter:before {
+	content: "\e603";
+}
+[class^="button-"] .to-hide, [class*=" button-"] .to-hide{display : none}
+}

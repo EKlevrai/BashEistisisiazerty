@@ -6,32 +6,33 @@
 <link href="/style/swag.css" type="text/css" rel="stylesheet" />
 <link href="/style/swag_form.css" type="text/css" rel="stylesheet" />
 <link href="/style/swag_button.css" type="text/css" rel="stylesheet" />
-		<link href="/BasheistIcons/style.css" type="text/css" rel="stylesheet" />		
+<link href="/style/swag_header.css" type="text/css" rel="stylesheet" />
+<link href="/BasheistIcons/style.css" type="text/css" rel="stylesheet" />		
 <link rel="shortcut icon" href="/icons/mainpage.ico" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
         <title>Violence et petits chats</title>
     </head>
 
     <body class="container-fluid">
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/bashing"><span class="icon-basheisti">Basheisti</span></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/bashistory" title="derniers bash"><span class="icon-clock"></span></a></li>
-        <li><a href="/random"  title="Un bash au hasard"><strong>?</strong></a></li>        
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+	<nav class=" navbar-basheisti" role="navigation">
+		<div class="">
+			<a class="header-link" href="/bashing"><span class="icon-basheisti"></span></a>
+			<a class="header-link" href="/bashistory" title="Derniers bash"><span class="icon-history"></span></a>
+			<a class="header-link" href="/random"  title="Un bash au hasard"><strong>?</strong></a>
+				<form class="header-searcher only-large" action="/bashsearch" id="search_form" method="post">
+					<div class="form-group only-large">
+						<input type="text" name="search_name" class=" only-large" placeholder="Search by name ...">
+					</div>
+					<a onclick="document.getElementById('search_form').submit();" title="Chercher par nom" class=""><span class="icon-search"></span></a>
+				</form>
+				<a class="header-link" class="navbar-right only-large" title="Github" href="https://github.com/EKlevrai/BashEistisisiazerty"><span class="icon-github"></span></a>
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	
+
+	
+	
 		<div class="Header col-md-12 container-fluid"></div>
 		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
 			<form action="/bashing" method="post">

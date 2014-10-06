@@ -7,52 +7,51 @@
 		<link href="/style/swag.css" type="text/css" rel="stylesheet" />
 		<link href="/style/swag_form.css" type="text/css" rel="stylesheet" />
 		<link href="/style/swag_button.css" type="text/css" rel="stylesheet" />
+		<link href="/style/swag_header.css" type="text/css" rel="stylesheet" />
 		<link href="/BasheistIcons/style.css" type="text/css" rel="stylesheet" />		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-<link rel="shortcut icon" href="/icons/mainpage.ico" >
-    </head>
+		<link href="/BasheistIcons/style.css" type="text/css" rel="stylesheet" />		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+		<link rel="shortcut icon" href="/icons/mainpage.ico" >
+</head>
+<body class="container-fluid">
+	<nav class=" navbar-basheisti" role="navigation">
+		<div class="">
+			<a class="header-link" href="/bashing"><span class="icon-basheisti"></span></a>
+			<a class="header-link" href="/bashistory" title="Derniers bash"><span class="icon-history"></span></a>
+			<a class="header-link" href="/random"  title="Un bash au hasard"><strong>?</strong></a>
+				<form class="header-searcher only-large" action="/bashsearch" id="search_form" method="post">
+					<div class="form-group only-large">
+						<input type="text" name="search_name" class=" only-large" placeholder="Search by name ...">
+					</div>
+					<a onclick="document.getElementById('search_form').submit();" title="Chercher par nom" class=""><span class="icon-search"></span></a>
+				</form>
+				<a class="header-link" class="navbar-right only-large" title="Github" href="https://github.com/EKlevrai/BashEistisisiazerty"><span class="icon-github"></span></a>
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	
 
-    <body class="container-fluid">
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/bashing"><span class="icon-basheisti">Basheisti</span></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/bashistory" title="derniers bash"><span class="icon-clock"></span></a></li>
-        <li><a href="/random"  title="Un bash au hasard"><strong>?</strong></a></li>        
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-		<div class="Header col-md-12 container-fluid"></div>
-		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
-        <% if (valid){ %><p class="bash_in_history">
-        <%=toSay.name%> t'es vraiment 
-		<%=toSay.insulte%> tu ferais mieux de 
-		<%=toSay.recommended_action%> et je suis d'accord avec 
-		<%=toSay.mec_d_accord%> 
-		<%=toSay.proportion%> de l'eisti ne t'aimes pas tu fais trop ton malin... A part 
-		<%=toSay.capacity%> tu sais rien faire d'autre #<%=toSay.context%> car excuse moi de 
-		<%=toSay.reproche%> quand 
-		<%=toSay.cause%>.</p>
-        <% } %>
+	
+	
+	<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
+    <% if (valid){ %><p class="bash_in_history">
+    <%=toSay.name%> t'es vraiment 
+	<%=toSay.insulte%> tu ferais mieux de 
+	<%=toSay.recommended_action%> et je suis d'accord avec 
+	<%=toSay.mec_d_accord%> 
+	<%=toSay.proportion%> de l'eisti ne t'aimes pas tu fais trop ton malin... A part 
+	<%=toSay.capacity%> tu sais rien faire d'autre #<%=toSay.context%> car excuse moi de 
+	<%=toSay.reproche%> quand 
+	<%=toSay.cause%>.</p>
+    <% } %>
         <form action="/bashing" class="container-fluid" method="get">
-                <button class="button_basheisti col-md-4" type="submit">More hate and cutes cats</button>
+                <button class="button_basheisti col-md-4" type="submit"><span class="button-basheisti"><span class="to-hide">More hate and cutes cats</span></span></button>
 		        <% if (valid){ %>
 		<button class="col-md-4 button_twitter popup" data-url="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&text=<%=toSay.name.replace(" ","%20")%>%20t%27es%20vraiment%20<%=toSay.insulte.replace(" ","%20")%>%20tu%20ferai%20mieux%20de%20<%=toSay.recommended_action.replace(" ","%20")%>...&tw_p=tweetbutton&url=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>">
-		<span class="icon-twitter"><span>Tweet</span></span>
+		<span class="button-twitter"><span class="to-hide">Tweet</span></span>
 		</button>
 		<button class="col-md-4 button_facebook popup" data-url="https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&sdk=joey&u=http%3A%2F%2Fbash.faucheisti.eu%2Fbash%3Fid%3D<%=toSay.id%>&display=popup&ref=plugin">
-		<span class="icon-facebook"><span>share</span></span>
+		<span class="button-facebook"><span class="to-hide">share</span></span>
 		</button>
 		<% } %>
         </form>
