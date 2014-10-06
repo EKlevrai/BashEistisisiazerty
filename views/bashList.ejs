@@ -52,11 +52,18 @@
 		</p> 			
 			<%}
 		});}%>
-        <form action="/bashing" method="get">
-            <p>
-                <input class="button_basheisti" type="submit" value="More hate and cutes cats" />
-            </p>
+        <form action="/bashing" class="container-fluid" method="get">
+        <button class="button_basheisti col-md-4" type="submit" title="More hate and cute cats">
+			<span class="button-basheisti"><span class="to-hide">More hate and cute cats</span></span>
+		</button>
+		<button class="popup button_twitter col-md-4" title="Follow @Basheisti on Twitter" data-url="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fbash.faucheisti.eu%2Fbashing&region=follow_link&screen_name=Basheisti&tw_p=followbutton&variant=2.0" data-newwindow="true">
+			<span class="button-twitter"><span class="to-hide">Follow @Basheisti</span></span>
+		</button>
+		<button class="col-md-4 popup button_facebook"  title="Like Basheisti on Facebook" data-url="https://www.facebook.com/BashEisti" data-newwindow="false">
+			<span class="button-facebook"><span class="to-hide">Like Basheisti</span></span>
+		</button>
         </form>
+
 		</div>
 		</div>
     </body>		<script src="/front/popup.js"></script>
