@@ -48,10 +48,15 @@ var  postBashForm = function(req, res) {
 					+","+mysql.escape(req.body.form_context)
 					+","+mysql.escape(req.body.form_reproche)
 					+","+mysql.escape(req.body.form_cause)+")";
-				connection.query(query_INSERT,function(err,result) {
-					if (err) throw err;
+				connection.query(query_INSERT)
+				.on('error',function(err){ 
+				if(err.code=="ER_DATA_TOO_LONG"){
+					res.redirect("/bashing");
+				}
+				else throw err;})
+				.on('result',function(result) {
 					res.redirect('/bash?id='+result.insertId);
-					});
+				});
 				connection.end();				
 			}
 		});

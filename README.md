@@ -1,7 +1,7 @@
 BashEistisisiazerty
 ===================
 
-Where cutes cats and hatred meet responsive in node MA BITE !!!!
+Where cutes cats and hatred meet responsive in node
 
 coucou tu veux voir mes packages?  
 

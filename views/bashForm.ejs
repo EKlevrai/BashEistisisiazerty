@@ -21,7 +21,7 @@
 			<a class="header-link" href="/random"  title="Un bash au hasard"><strong>?</strong></a>
 				<form class="header-searcher only-large" action="/bashsearch" id="search_form" method="post">
 					<div class="form-group only-large">
-						<input type="text" name="search_name" class=" only-large" placeholder="Search by name ...">
+						<input type="text" name="search_name" class=" only-large" maxlength="15" placeholder="Search by name ...">
 					</div>
 					<a onclick="document.getElementById('search_form').submit();" title="Chercher par nom" class=""><span class="icon-search"></span></a>
 				</form>
@@ -37,24 +37,24 @@
 		<div class="TheContainerOfDoomedKitten col-md-12 container-fluid">
 			<form action="/bashing" method="post">
 				<div class="col-md-6">Son nom</div>
-				<div class="col-md-6"><input type="text" name="form_name" id="form_name" value="Thibault"/></div>
+				<div class="col-md-6"><input type="text" name="form_name" id="form_name" maxlength="15" value="Thibault"/></div>
 				<div class="col-md-6">une insulte</div>
-				<div class="col-md-6"><input type="text" name="form_insulte" id="form_insulte" value="une merde"/></div>
+				<div class="col-md-6"><input type="text" name="form_insulte" id="form_insulte" maxlength="15" value="une merde"/></div>
 				<div class="col-md-6">une recommendation</div>
-				<div class="col-md-6"><input type="text" name="form_recommended_action" id="form_recommended_action" value="fermer ta gueule"  /></div>
+				<div class="col-md-6"><input type="text" name="form_recommended_action" id="form_recommended_action" maxlength="40" value="fermer ta gueule"  /></div>
 				<div class="col-md-6">une personne qui partage votre avis</div>
-				<div class="col-md-6"><input type="text" name="form_mec_d_accord" id="form_mec_d_accord" value="terrade" /></div>
+				<div class="col-md-6"><input type="text" name="form_mec_d_accord" id="form_mec_d_accord" maxlength="15" value="terrade" /></div>
 				<div class="col-md-6">la proportion de gens qui le detestent</div>
-				<div class="col-md-6"><input type="text" name="form_proportion" id="form_proportion" value="la moiti&eacute;" /></div>
+				<div class="col-md-6"><input type="text" name="form_proportion" id="form_proportion" maxlength="20" value="la moiti&eacute;" /></div>
 				<div id="the-story" class="col-md-12">histoire</div>
 				<div class="col-md-6">la chose qu'il a faite</div>
-				<div class="col-md-6"><input type="text" name="form_capacity" id="form_capacity" value="pleurer" /></div>
+				<div class="col-md-6"><input type="text" name="form_capacity" id="form_capacity" maxlength="80" value="pleurer" /></div>
 				<div class="col-md-6">contexte</div>
-				<div class="col-md-6"><input type="text" name="form_context" id="form_context" value="Bonizec" /></div>
+				<div class="col-md-6"><input type="text" name="form_context" id="form_context" maxlength="15" value="Bonizec" /></div>
 				<div class="col-md-6">il vous reproche</div>
-				<div class="col-md-6"><input type="text" name="form_reproche" id="form_reproche" value="ne pas vouloir te donner la moyenne" /></div>
+				<div class="col-md-6"><input type="text" name="form_reproche" id="form_reproche" maxlength="80" value="ne pas vouloir te donner la moyenne" /></div>
 				<div class="col-md-6">pourquoi l'avez-vous fait?</div>
-				<div class="col-md-6"><input type="text" name="form_cause" id="form_cause" value="tu n'as rien branl&eacute; et que je me tape tout derri&egrave;re" /></div>
+				<div class="col-md-6"><input type="text" name="form_cause" id="form_cause" maxlength="80" value="tu n'as rien branl&eacute; et que je me tape tout derri&egrave;re" /></div>
                 <button class="button_basheisti col-md-4" type="submit" title="Generate hate" value="Generate hate">
 					<span class="button-basheisti"><span class="to-hide">Generate hate</span></span>
 				</button>
