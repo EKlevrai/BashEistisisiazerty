@@ -17,7 +17,7 @@ global.mysql_password='B4sheisti';
 /**the DB*/
 global.mysql_database='faucheisti_prod_basheisti';
 /* On utilise les cookies, les sessions et les formulaires */
- app.use(express.static(__dirname + '/public'))
+ app.use(express.static(__dirname + '/public')).set('views', __dirname + '/views')
 .use(bodyParser())
 /*bash identifié par son id*/
 .get('/bash',get_bash.manageGet)

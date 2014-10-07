@@ -18,26 +18,44 @@ var  postBashForm = function(req, res) {
 		password : global.mysql_password,
 		database : global.mysql_database
 	});
+	var o=[
+		{name : req.body.form_name},
+		{insulte : req.body.form_insulte},
+		{recommended_action :req.body.form_recommended_action},
+		{mec_d_accord : req.body.form_mec_d_accord},
+		{proportion : req.body.form_proportion},
+		{capacity : req.body.form_capacity},
+		{context : req.body.form_context},
+		{reproche : req.body.form_reproche},
+		{cause : req.body.form_cause}
+		]; 
 		connection.connect();
-		var query_INSERT ="INSERT INTO Bash "
-						+"(name, insulte, recommended_action, mec_d_accord, proportion, capacity, context, reproche, cause)"
-						+"VALUES (\""+req.body.form_name
-						+"\",\""+req.body.form_insulte
-						+"\",\""+req.body.form_recommended_action
-						+"\",\""+req.body.form_mec_d_accord
-						+"\",\""+req.body.form_proportion
-						+"\",\""+req.body.form_capacity
-						+"\",\""+req.body.form_context+"\",\""
-						+req.body.form_reproche+"\",\""
-						+req.body.form_cause+"\")";
-		connection.query(query_INSERT,function(err, rows, fields) {
-		if (err) throw err;
+		connection.query("SELECT * FROM Bash WHERE ? AND ? AND ? AND ? AND ? AND ? AND ? AND ? AND ?",o,function(err_dv,rows_dv,fields_dv){
+			if(err_dv)throw err_dv;
+			if(rows_dv.length>0){
+				res.redirect('/bash?id='+rows_dv[0].id);
+				connection.end();
+				}
+			else{
+				var query_INSERT ="INSERT INTO Bash "
+					+"(name, insulte, recommended_action, mec_d_accord, proportion, capacity, context, reproche, cause)"
+					+"VALUES ("+mysql.escape(req.body.form_name)
+					+","+mysql.escape(req.body.form_insulte)
+					+","+mysql.escape(req.body.form_recommended_action)
+					+","+mysql.escape(req.body.form_mec_d_accord)
+					+","+mysql.escape(req.body.form_proportion)
+					+","+mysql.escape(req.body.form_capacity)
+					+","+mysql.escape(req.body.form_context)
+					+","+mysql.escape(req.body.form_reproche)
+					+","+mysql.escape(req.body.form_cause)+")";
+				connection.query(query_INSERT,function(err,result) {
+					if (err) throw err;
+					res.redirect('/bash?id='+result.insertId);
+					});
+				connection.end();				
+			}
 		});
-		connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
-		if (err) throw err;
-		res.redirect('/bash?id='+rows[0].bash_generes);
-		});
-		connection.end();
+		
 	}
 };
 module.exports.managePost = function(req, res) {return postBashForm(req, res); }
