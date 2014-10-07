@@ -9,27 +9,25 @@ var  getBashById = function(req, res){
 		password : global.mysql_password,
 		database : global.mysql_database
 	});
-	if(!isNaN(Number(req.query.id,10))){
-		connection.connect();
-		connection.query("SELECT * FROM Bash Where id="+req.query.id+";",function(err, rows, fields) {
-			if (err){ //throw err;
-				res.redirect('/bashing');}
-			if (typeof rows!= 'undefined' 
-			&& typeof rows[0]!= 'undefined'
-			&& rows[0].hasOwnProperty("name") 
-			&& rows[0].hasOwnProperty("insulte") 
-			&& rows[0].hasOwnProperty("recommended_action") 
-			&& rows[0].hasOwnProperty("proportion")
-			&& rows[0].hasOwnProperty("capacity")
-			&& rows[0].hasOwnProperty("context")
-			&& rows[0].hasOwnProperty("reproche")
-			&& rows[0].hasOwnProperty("cause")
-			){res.render('bash.ejs',{toSay: rows[0]});}
+	connection.connect();
+	connection.query("SELECT * FROM Bash Where id=?;",req.query.id,function(err, rows, fields) {
+		if (err){ //throw err;
+			res.redirect('/bashing');}
+		if (typeof rows!= 'undefined' 
+		&& typeof rows[0]!= 'undefined'
+		&& rows[0].hasOwnProperty("name") 
+		&& rows[0].hasOwnProperty("insulte") 
+		&& rows[0].hasOwnProperty("recommended_action") 
+		&& rows[0].hasOwnProperty("proportion")
+		&& rows[0].hasOwnProperty("capacity")
+		&& rows[0].hasOwnProperty("context")
+		&& rows[0].hasOwnProperty("reproche")
+		&& rows[0].hasOwnProperty("cause")
+		){res.render('bash.ejs',{toSay: rows[0]});}
 		else res.redirect('/bashing');
-		});
+	});
 		connection.end();
-	}
-	else res.redirect('/bashing');
+
 };
 module.exports.manageGet = function(req, res) {return getBashById(req, res); }
 }());
