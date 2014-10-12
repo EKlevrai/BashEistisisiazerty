@@ -6,6 +6,8 @@ var mysql = require('mysql');
 var post_bash = require('./bashPost.js');
 var get_bash = require('./bashGet.js');
 var history = require('./bashHistory.js');
+var RSSwag = require('./rss-feeder.js');
+
 var app = express(); 
 
 /**put the host */
@@ -16,6 +18,10 @@ global.mysql_user='basheisti';
 global.mysql_password='B4sheisti';
 /**the DB*/
 global.mysql_database='faucheisti_prod_basheisti';
+
+/*Generer RSS*/
+RSSwag.createRSS();
+
 /* On utilise les cookies, les sessions et les formulaires */
  app.use(express.static(__dirname + '/public')).set('views', __dirname + '/views')
 .use(bodyParser())
@@ -32,7 +38,9 @@ global.mysql_database='faucheisti_prod_basheisti';
 /* Bash au random */
 .get('/random',history.getRandom)
 /* send de bash */ 
-.post('/bashing',post_bash.managePost)
+.post('/bashing',function(req,res){post_bash.managePost(req,res,RSSwag);})
+/* flux RSS */
+.get('/rss',RSSwag.getRSS)
 /* On redirige vers le formulaire si la page demandée n'est pas trouvée */ 
 .use(function(req, res, next){res.redirect('/bashing');})
 .listen(6951);

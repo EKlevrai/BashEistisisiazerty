@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 (function() {
-var  postBashForm = function(req, res) {
+var  postBashForm = function(req, res,RSSwag) {
 	console.log("POST /bashing, IP is : "+req.connection.remoteAddress+" ["+new Date().toUTCString() +"]");
 	if(req.body.form_name!='' &&
 	req.body.form_insulte!='' &&
@@ -55,6 +55,8 @@ var  postBashForm = function(req, res) {
 				}
 				else throw err;})
 				.on('result',function(result) {
+					o['id']=result.insertId;
+					RSSwag.addRSS(o);
 					res.redirect('/bash?id='+result.insertId);
 				});
 				connection.end();				
@@ -63,5 +65,5 @@ var  postBashForm = function(req, res) {
 		
 	}
 };
-module.exports.managePost = function(req, res) {return postBashForm(req, res); }
+module.exports.managePost = function(req, res,RSSwag) {return postBashForm(req, res,RSSwag); }
 }());
