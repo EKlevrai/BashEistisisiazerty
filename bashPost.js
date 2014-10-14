@@ -56,7 +56,7 @@ var  postBashForm = function(req, res,RSSwag) {
 				else throw err;})
 				.on('result',function(result) {
 					o['id']=result.insertId;
-					RSSwag.addRSS(o);
+					RSSwag.createRSS();
 					res.redirect('/bash?id='+result.insertId);
 				});
 				connection.end();				

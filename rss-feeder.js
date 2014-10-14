@@ -17,7 +17,16 @@ var mysql = require('mysql');
 			database : global.mysql_database
 		});
 		connection.connect();
-		connection.query('SELECT * FROM Bash ORDER BY id DESC',function(err, rows, fields) {
+			/*On genere la query à partir du nombre de lignes de data (15 ou moins) */
+		connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
+		if (err) throw err;
+		var QueryString = 'SELECT * FROM Bash WHERE ';
+		for(var i=rows[0].bash_generes;i>0 && i>rows[0].bash_generes-5;i--){
+			if (i!=rows[0].bash_generes){QueryString+=' OR ';}
+			QueryString+=' id='+i;
+		}	
+		QueryString+='  ORDER BY id DESC;';
+		connection.query(QueryString,function(err2, rows2, fields2) {
 			if (err) throw err;
 			rows.forEach(function(entry){
 				if (typeof entry!= 'undefined'
@@ -30,21 +39,16 @@ var mysql = require('mysql');
 				&& entry.hasOwnProperty("reproche")
 				&& entry.hasOwnProperty("cause")
 				)
-					/* loop over data and add to feed */
-					feed.item({title : entry.name+' t\'es vraiment ...',
-						description : entry.name+' t\'es vraiment '+entry.insulte+' tu ferais mieux de '+entry.recommended_action+' et je suis d\'accord avec '+entry.mec_d_accord+' '+entry.proportion+' de l\'eisti ne t\'aimes pas tu fais trop ton malin... A part '+entry.capacity+' tu sais rien faire d\'autre #'+entry.context+' car excuse moi de '+entry.reproche+' quand '+entry.cause+'.',
-						url : 'http://bash.faucheisti.eu/bash?id='+entry.id});
+				/* loop over data and add to feed */
+				feed.item({title : entry.name+' t\'es vraiment ...',
+					description : entry.name+' t\'es vraiment '+entry.insulte+' tu ferais mieux de '+entry.recommended_action+' et je suis d\'accord avec '+entry.mec_d_accord+' '+entry.proportion+' de l\'eisti ne t\'aimes pas tu fais trop ton malin... A part '+entry.capacity+' tu sais rien faire d\'autre #'+entry.context+' car excuse moi de '+entry.reproche+' quand '+entry.cause+'.',
+					url : 'http://bash.faucheisti.eu/bash?id='+entry.id});
 			});
+		});
 		});
 		connection.end();	
 	};
-	var updateRSS = function(bash){
-		feed.item({
-			title : bash.name+' t\'es vraiment ...',
-			description : bash.name+' t\'es vraiment '+bash.insulte+' tu ferais mieux de '+bash.recommended_action+' et je suis d\'accord avec '+bash.mec_d_accord+' '+bash.proportion+' de l\'eisti ne t\'aimes pas tu fais trop ton malin... A part '+bash.capacity+' tu sais rien faire d\'autre #'+bash.context+' car excuse moi de '+bash.reproche+' quand '+bash.cause+'.',
-			url : 'http://bash.faucheisti.eu/bash?id='+bash.id
-		});
-	};
+
 	var sendRSS = function(req,res){res.send(feed.xml());};
 	module.exports.getRSS = function(req,res){return sendRSS(req,res);};
 	module.exports.addRSS = function(bash){return updateRSS(bash);};
