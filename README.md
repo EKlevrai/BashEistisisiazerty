@@ -6,6 +6,7 @@ Where cutes cats and hatred meet responsive in node
 coucou tu veux voir mes packages?  
 
 npm install express  
+npm install rss  
 npm install ejs  
 npm install mysql  
 npm install mime  
