@@ -11,15 +11,7 @@ var  printHistory =  function(req, res) {
 		database : global.mysql_database
 	});
 	/*On genere la query à partir du nombre de lignes de data (5 ou moins) */
-	connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
-	if (err) throw err;
-	var QueryString = 'SELECT * FROM Bash WHERE ';
-	for(var i=rows[0].bash_generes;i>0 && i>rows[0].bash_generes-5;i--){
-		if (i!=rows[0].bash_generes){QueryString+=' OR ';}
-		QueryString+=' id='+i;
-	}
-	QueryString+='  ORDER BY id DESC;';
-	connection.query(QueryString,function(err2, rows2, fields2) {
+	connection.query('SELECT * FROM Bash ORDER BY id DESC LIMIT 5;',function(err2, rows2, fields2) {
 		if (err2) throw err2;
 		rows2.forEach(function(entry){
 			if (typeof entry!= 'undefined'
@@ -34,7 +26,6 @@ var  printHistory =  function(req, res) {
 			)	Attrs.bashes.push(entry);
 		});
 		res.render('bashList.ejs',Attrs);
-	});	
 	});
 };
 var  printSearch =  function(req, res) {
@@ -74,10 +65,11 @@ var  printRandom =  function(req, res) {
 		database : global.mysql_database
 	});
 	/*On genere la query à partir du nombre de lignes de data (5 ou moins) */
-	connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
+	connection.query('SELECT * FROM Bash;',function(err, rows, fields) {
 	if (err) throw err;
-	var n=Math.floor(Math.random() * rows[0].bash_generes) + 1
-	res.redirect('/bash?id='+n);
+	var n=Math.floor(Math.random() * rows.length) + 0;
+	console.log(rows[n]);
+	res.render('bash.ejs',{toSay : rows[n]});
 	});
 };
 module.exports.getHistory = function(req, res) {return printHistory(req, res); }

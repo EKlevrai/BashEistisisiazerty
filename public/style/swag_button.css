@@ -52,16 +52,19 @@ overflow : auto;
 padding : 1px;
 }
 .button-basheisti:before {
-	content: "\e606";
+	content: "\e608";
+}
+.button-paypal:before {
+	content: "\e600";
 }
 .button-facebook:before {
-	content: "\e601";
-}
-.button-googleplus:before {
 	content: "\e602";
 }
-.button-twitter:before {
+.button-googleplus:before {
 	content: "\e603";
+}
+.button-twitter:before {
+	content: "\e604";
 }
 [class^="button-"] .to-hide, [class*=" button-"] .to-hide{display : none}
 }

@@ -17,18 +17,10 @@ var mysql = require('mysql');
 			database : global.mysql_database
 		});
 		connection.connect();
-			/*On genere la query à partir du nombre de lignes de data (15 ou moins) */
-		connection.query('SELECT count(id) AS "bash_generes" FROM Bash;',function(err, rows, fields) {
-		if (err) throw err;
-		var QueryString = 'SELECT * FROM Bash WHERE ';
-		for(var i=rows[0].bash_generes;i>0 && i>rows[0].bash_generes-5;i--){
-			if (i!=rows[0].bash_generes){QueryString+=' OR ';}
-			QueryString+=' id='+i;
-		}	
-		QueryString+='  ORDER BY id DESC;';
-		connection.query(QueryString,function(err2, rows2, fields2) {
-			if (err) throw err;
-			rows.forEach(function(entry){
+
+		connection.query( 'SELECT * FROM Bash ORDER BY id DESC LIMIT 15;',function(err2, rows2, fields2) {
+			if (err2) throw err2;
+			rows2.forEach(function(entry){
 				if (typeof entry!= 'undefined'
 				&& entry.hasOwnProperty("name") 
 				&& entry.hasOwnProperty("insulte") 
@@ -44,7 +36,6 @@ var mysql = require('mysql');
 					description : entry.name+' t\'es vraiment '+entry.insulte+' tu ferais mieux de '+entry.recommended_action+' et je suis d\'accord avec '+entry.mec_d_accord+' '+entry.proportion+' de l\'eisti ne t\'aimes pas tu fais trop ton malin... A part '+entry.capacity+' tu sais rien faire d\'autre #'+entry.context+' car excuse moi de '+entry.reproche+' quand '+entry.cause+'.',
 					url : 'http://bash.faucheisti.eu/bash?id='+entry.id});
 			});
-		});
 		});
 		connection.end();	
 	};
