@@ -1,50 +1,37 @@
-.button_twitter{
+.button_swag{
   width : 100%;
   min-width : 200px;
   font: bold 11px Arial white;
   text-decoration: none;
   text-align : center;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+.button_twitter{
   background-color: #4099FF;
   color: #FFFFFF;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
 }
 .button_facebook{
-  width : 100%;
-  min-width : 200px;
-  font: bold 11px Arial white;
-  text-decoration: none;
-  text-align : center;
+
   background-color: #3b5998;
   color: #FFFFFF;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
-}
 
+}
+.button_paypal{
+  background-color: #253b80;
+  color : #179bd7;
+}
 .button_basheisti{
-  width : 100%;
-  min-width : 200px;
-  font: bold 11px Arial white;
-  text-decoration: none;
-  text-align : center;
   background-color : #E8CCCC;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
 }
  /* iPads (landscape) and desktop ---------- */
 @media only screen
 and (min-width : 990px)
 {
-.button_facebook, .button_twitter, .button_basheisti{
+.button_facebook, .button_twitter, .button_paypal, .button_basheisti{
 line-height : 52px;
 max-height : 50px;
 font-size : 50px;
