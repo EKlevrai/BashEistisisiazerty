@@ -1,6 +1,5 @@
 var mysql = require('mysql');
 
-//comment
 (function() {
 var  postBashForm = function(req, res,RSSwag) {
 	console.log("POST /bashing, IP is : "+req.connection.remoteAddress+" ["+new Date().toUTCString() +"]");
